@@ -1,38 +1,60 @@
 package com.example.skyrimcheats.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.skyrimcheats.R
+import com.example.skyrimcheats.databinding.ElementBinding
 import com.example.skyrimcheats.element.Element
 
-class ElementAdapter : RecyclerView.Adapter<ElementAdapter.ElementViewHolder>() {
+class ElementAdapter(private val clickListener: OnItemClickListener)/*(private val elements: List<Element>)*/ :
+    RecyclerView.Adapter<ElementAdapter.ElementViewHolder>() {
 
-    lateinit var elements :List<Element>
+    private var elements = mutableListOf<Element>()
 
-    class ElementViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val icon = itemView.findViewById<ImageView>(R.id.icon)
-        val textName = itemView.findViewById<TextView>(R.id.name)
-        val textDesc = itemView.findViewById<TextView>(R.id.desc)
-    }
-
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ElementViewHolder {
-        return ElementViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.element, parent, false))
+        val binding = ElementBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ElementViewHolder(binding)
+
     }
+
+    class ElementViewHolder(val binding: ElementBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    }
+
 
     override fun onBindViewHolder(holder: ElementViewHolder, position: Int) {
 
-        holder.icon.setImageResource(elements[position].idIcon)
-        holder.textName.text = elements[position].name
-        holder.textDesc.text = elements[position].desc
+        with(holder) {
+            with(elements[position]) {
+                binding.name.text = elName
+                binding.icon.setImageResource(elements[position].idIcon)
+                binding.desc.text = elDesc
+
+                holder.itemView.setOnClickListener {
+                    clickListener.click(elements[position])
+                }
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return elements.size
     }
+
+    fun addItems(list: List<Element>) {
+        elements.clear()
+        elements.addAll(list)
+        notifyDataSetChanged()
+
+    }
+
+    interface OnItemClickListener {
+        fun click(element: Element)
+    }
 }
+
+
 
 

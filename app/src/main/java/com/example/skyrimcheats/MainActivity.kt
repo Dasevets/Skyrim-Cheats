@@ -1,15 +1,8 @@
 package com.example.skyrimcheats
 
-import android.content.ClipData.Item
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telecom.Call.Details
-import android.util.Log
-import android.view.Window
-import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.RecyclerView
-import com.example.skyrimcheats.adapter.ElementAdapter
 import com.example.skyrimcheats.databinding.ActivityMainBinding
 import com.example.skyrimcheats.element.Element
 import com.example.skyrimcheats.fragments.DetailsFragment

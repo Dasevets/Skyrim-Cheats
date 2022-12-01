@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
+
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.skyrimcheats.MainActivity
 import com.example.skyrimcheats.R
 import com.example.skyrimcheats.adapter.ElementAdapter
@@ -39,7 +38,7 @@ class HomeFragment : Fragment() {
         Element(
             2,
             "Skill",
-            R.drawable.magic,
+            R.drawable.skill,
             "Cheats for skill"
         ),
         Element(

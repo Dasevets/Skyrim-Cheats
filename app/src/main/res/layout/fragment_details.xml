@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#598581"
     android:layout_margin="10dp"
     android:orientation="vertical"
     tools:context=".fragments.DetailsFragment">
@@ -12,7 +13,7 @@
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#598581"
+
         app:menu="@menu/tool_bar"
         app:navigationIcon="?attr/actionModeCloseDrawable">
 
@@ -61,11 +62,11 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/annot"
+            android:id="@+id/detailsAnnot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text=".text.text"/>
+            android:text=".states"/>
     </ScrollView>
 
 

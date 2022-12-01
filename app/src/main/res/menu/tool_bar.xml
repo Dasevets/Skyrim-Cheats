@@ -4,6 +4,8 @@
 
     <item
         android:id="@+id/search"
+        app:actionViewClass="android.widget.SearchView"
         android:title="Поиск"
-        app:showAsAction="ifRoom"/>
+        android:icon="?android:attr/actionModeWebSearchDrawable"
+        app:showAsAction="always"/>
 </menu>

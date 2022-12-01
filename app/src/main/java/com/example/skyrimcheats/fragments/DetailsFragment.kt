@@ -15,6 +15,7 @@ import com.example.skyrimcheats.R
 
 import com.example.skyrimcheats.databinding.FragmentDetailsBinding
 import com.example.skyrimcheats.element.Element
+import com.example.skyrimcheats.element.ElementAnnotation
 
 
 class DetailsFragment : Fragment() {
@@ -61,11 +62,14 @@ class DetailsFragment : Fragment() {
 
 
     private fun setElementDetails() {
+
+
+
         val element = arguments?.get("element") as Element
         binding.detailsName.text = element.elName
         binding.detailsIcon.setImageResource(element.idIcon)
         binding.detailsDesc.text = element.elDesc
-
+        binding.detailsAnnot.text = arguments?.getString("input")
 
     }
 

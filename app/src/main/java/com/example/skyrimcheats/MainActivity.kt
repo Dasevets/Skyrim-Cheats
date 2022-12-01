@@ -29,9 +29,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun launchDetailsFragment(element: Element) {
+    fun launchDetailsFragment(element: Element, editext: String) {
         val bundle = Bundle()
         bundle.putParcelable("element", element)
+
+        bundle.putString("input", editext)
+
         val fragment = DetailsFragment()
         fragment.arguments = bundle
 
@@ -41,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
-
 
 }
 

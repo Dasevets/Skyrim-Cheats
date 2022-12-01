@@ -13,7 +13,7 @@ import com.example.skyrimcheats.R
 import com.example.skyrimcheats.adapter.ElementAdapter
 import com.example.skyrimcheats.databinding.FragmentHomeBinding
 import com.example.skyrimcheats.element.Element
-
+import com.example.skyrimcheats.element.ElementAnnotation
 
 
 class HomeFragment : Fragment() {
@@ -80,14 +80,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        val annL = ElementAnnotation().annotList
 
         binding.recyclerView.apply {
             elementAdapter = ElementAdapter(object : ElementAdapter.OnItemClickListener {
 
                 override fun click(element: Element) {
-                    (requireActivity() as MainActivity).launchDetailsFragment(element)
+                    (requireActivity() as MainActivity).launchDetailsFragment(element, annL[elementDB.indexOf(element)].toString())
                     Log.i("TAG", "CLICK")
+
                 }
             })
 

@@ -4,16 +4,26 @@ import android.content.ClipData.Item
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telecom.Call.Details
+import android.util.Log
+import android.view.Window
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skyrimcheats.adapter.ElementAdapter
+import com.example.skyrimcheats.databinding.ActivityMainBinding
 import com.example.skyrimcheats.element.Element
 import com.example.skyrimcheats.fragments.DetailsFragment
 import com.example.skyrimcheats.fragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
         supportFragmentManager
             .beginTransaction()
@@ -22,7 +32,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
 
+
     }
+
 
     fun launchDetailsFragment(element: Element) {
         val bundle = Bundle()
@@ -36,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+
 }
 
 

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkyrimCheats"
         tools:targetApi="31">
-        <activity android:name=".fragments.DetailsFragment"></activity>
+        <activity android:name=".fragments.DetailsFragment" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

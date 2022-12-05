@@ -2,45 +2,45 @@ package com.example.skyrimcheats.element
 
 class ElementAnnotation {
 
-    val stateL = listOf<String>(
-        "state1",
-        "state2",
-        "state3"
+    private val stateL = listOf(
+        "state1\n",
+        "state2\n",
+        "state3\n"
     )
-    val iddqdL = listOf<String>(
-        "iddqd1",
-        "iddqd2",
-        "iddqd3"
+    private val iddqdL = listOf(
+        "iddqdd1\n",
+        "iddqd2\n",
+        "iddqd3\n"
     )
-    val skillL = listOf<String>(
-        "skill1",
-        "skill2",
-        "skill3"
+    private val skillL = listOf(
+        "skill1\n",
+        "skill2\n",
+        "skill3\n"
     )
-    val weaponL = listOf<String>(
-        "weapon1",
-        "weapon2",
-        "weapon3"
+    private val weaponL = listOf(
+        "weapon1\n",
+        "weapon2\n",
+        "weapon3\n"
     )
-    val armorL = listOf<String>(
-        "armor1",
-        "armor2",
-        "armor3"
+    private val armorL = listOf(
+        "armor1\n",
+        "armor2\n",
+        "armor3\n"
     )
-    val eatL = listOf<String>(
-        "eat1",
-        "eat2",
-        "eat3"
+    private val eatL = listOf(
+        "eat1\n",
+        "eat2\n",
+        "eat3\n"
     )
-    val itemL = listOf<String>(
-        "item1",
-        "item2",
-        "item3"
+    private val itemL = listOf(
+        "item1\n",
+        "item2\n",
+        "item3\n"
     )
 
     var annotList = mutableListOf(stateL, iddqdL, skillL, weaponL, armorL, eatL, itemL)
-    fun getAnnList(): MutableList<List<String>> {
-        return annotList
-    }
+//    fun getAnnList(): MutableList<List<String>> {
+//        return annotList
+//    }
 
 }

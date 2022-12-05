@@ -4,11 +4,9 @@ package com.example.skyrimcheats.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 
 import com.example.skyrimcheats.MainActivity
 import com.example.skyrimcheats.R
@@ -16,6 +14,7 @@ import com.example.skyrimcheats.R
 import com.example.skyrimcheats.databinding.FragmentDetailsBinding
 import com.example.skyrimcheats.element.Element
 import com.example.skyrimcheats.element.ElementAnnotation
+import java.util.zip.Inflater
 
 
 class DetailsFragment : Fragment() {
@@ -34,35 +33,71 @@ class DetailsFragment : Fragment() {
         return binding.root
     }
 
+
+    //    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//
+//        inflater.inflate(R.menu.tool_bar, menu)
+//
+//        val menuItem = menu.findItem(R.id.search)
+//
+//        val searchView = menuItem.actionView as SearchView
+//
+//        val elementSearch = arguments?.get("elId") as Int
+//
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                if (ElementAnnotation().annotList[elementSearch].contains(
+//                        query
+//                    )
+//                ) {
+//                    Log.i("search", "work")// вывести нужное, придумать как прицепить element
+//                } else {
+//                    Log.i("search", "not work")
+//                }
+//                return false
+//
+//            }
+//
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                return false
+//            }
+//
+//        })
+//
+//        //return super.onCreateOptionsMenu(menu)
+//    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolBar.setOnMenuItemClickListener{
-            when(it.itemId) {
+        binding.toolBar.setOnMenuItemClickListener {
+            when (it.itemId) {
                 R.id.search -> {
-//                    Toast.makeText(context, "HI", Toast.LENGTH_SHORT).show()
+
+                    //Toast.makeText(DetailsFragment().context, "HI", Toast.LENGTH_SHORT).show()
                     Log.i("MYTag", "Check")
-                true
+                    true
                 }
                 else -> false
             }
         }
-        binding.toolBar.setNavigationOnClickListener{
- //           Toast.makeText(context,"back",Toast.LENGTH_SHORT).show()
+        binding.toolBar.setNavigationOnClickListener {
+            Log.i("BACK"," CLICK BACK")
+            //           Toast.makeText(context,"back",Toast.LENGTH_SHORT).show()
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
-
         }
-
-
 
         setElementDetails()
 
     }
 
 
-    private fun setElementDetails() {
 
+
+    private fun setElementDetails() {
 
 
         val element = arguments?.get("element") as Element
@@ -72,6 +107,4 @@ class DetailsFragment : Fragment() {
         binding.detailsAnnot.text = arguments?.getString("input")
 
     }
-
-
 }

@@ -1,10 +1,17 @@
 package com.example.skyrimcheats
 
 
+import android.app.FragmentManager
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.widget.SearchView
 import com.example.skyrimcheats.databinding.ActivityMainBinding
 import com.example.skyrimcheats.element.Element
+import com.example.skyrimcheats.element.ElementAnnotation
 import com.example.skyrimcheats.fragments.DetailsFragment
 import com.example.skyrimcheats.fragments.HomeFragment
 
@@ -18,12 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        supportFragmentManager.popBackStack()
+
         supportFragmentManager
             .beginTransaction()
             .add(R.id.fragment_placeholder, HomeFragment())
-            .addToBackStack(null)
+            //          .addToBackStack(null)
             .commit()
-
 
 
     }
@@ -38,11 +46,14 @@ class MainActivity : AppCompatActivity() {
         val fragment = DetailsFragment()
         fragment.arguments = bundle
 
+
+
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_placeholder, fragment)
-            .addToBackStack(null)
+//            .addToBackStack(null)
             .commit()
+
     }
 
 }

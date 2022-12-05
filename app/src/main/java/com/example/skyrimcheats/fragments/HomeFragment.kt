@@ -1,5 +1,7 @@
 package com.example.skyrimcheats.fragments
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,7 +24,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var elementAdapter: ElementAdapter
-    private val elementDB = listOf(
+    val elementDB = listOf(
         Element(
             0,
             "State",
@@ -80,15 +82,20 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = Bundle()
+
         val annL = ElementAnnotation().annotList
 
         binding.recyclerView.apply {
             elementAdapter = ElementAdapter(object : ElementAdapter.OnItemClickListener {
 
                 override fun click(element: Element) {
-                    (requireActivity() as MainActivity).launchDetailsFragment(element, annL[elementDB.indexOf(element)].toString())
-                    Log.i("TAG", "CLICK")
-
+                    (requireActivity() as MainActivity).launchDetailsFragment(
+                        element,
+                        annL[elementDB.indexOf(element)].toString()
+                    )
+                    bundle.putInt("elId", elementDB.indexOf(element))
+                    DetailsFragment().arguments = bundle
                 }
             })
 
@@ -97,6 +104,7 @@ class HomeFragment : Fragment() {
         }
         elementAdapter.addItems(elementDB)
     }
+
 
 
 }
